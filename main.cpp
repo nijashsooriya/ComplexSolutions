@@ -19,6 +19,8 @@ public:
     friend Complex subtract(Complex, Complex);
     friend Complex multiply(Complex, Complex);
     friend Complex divide(Complex, Complex);
+    friend double getReal(Complex);
+    friend double getImag(Complex);
 };
 
 void Complex::set() {
@@ -67,10 +69,19 @@ Complex divide(Complex i1, Complex i2){
     return result;
 }
 
+double getReal(Complex i1){
+    return i1.real;
+}
+
+double getImag(Complex i1){
+    return i1.imaginary;
+}
+
 int main() {
     Complex n1(6.5, -6);
     Complex n2(24, 7);
     Complex val = divide(n1, n2);
     val.get();
+    std::cout << getReal(val) << '\n' << getImag(val);
 
 }
