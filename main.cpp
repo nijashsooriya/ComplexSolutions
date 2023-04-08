@@ -1,13 +1,14 @@
 #include <iostream>
+#include <math.h>
 
 class Complex{
-    int real, imaginary;
+    double real, imaginary;
 public:
     Complex(){
         //default constructor
         real = 0, imaginary = 0;
     }
-    Complex(int r, int i){
+    Complex(double r, double i){
         //Specified constructor
         real =  r, imaginary = i;
     }
@@ -17,6 +18,7 @@ public:
     friend Complex add(Complex, Complex);
     friend Complex subtract(Complex, Complex);
     friend Complex multiply(Complex, Complex);
+    friend Complex divide(Complex, Complex);
 };
 
 void Complex::set() {
@@ -58,10 +60,17 @@ Complex multiply(Complex i1, Complex i2){
     return resultant;
 }
 
+Complex divide(Complex i1, Complex i2){
+    Complex result;
+    result.real = (i1.real*i2.real + i1.imaginary*i2.imaginary)/(pow(i2.real, 2) + pow(i2.imaginary, 2));
+    result.imaginary = (i1.imaginary*i2.real - i1.real*i2.imaginary)/(pow(i2.real, 2) + pow(i2.imaginary, 2));
+    return result;
+}
+
 int main() {
-    Complex n1(6, -6);
+    Complex n1(6.5, -6);
     Complex n2(24, 7);
-    Complex val = multiply(n1, n2);
+    Complex val = divide(n1, n2);
     val.get();
 
 }
