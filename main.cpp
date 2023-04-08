@@ -16,7 +16,7 @@ public:
     void get();
     friend Complex add(Complex, Complex);
     friend Complex subtract(Complex, Complex);
-
+    friend Complex multiply(Complex, Complex);
 };
 
 void Complex::set() {
@@ -30,14 +30,12 @@ void Complex::set() {
 
 void Complex::get(){
     if(imaginary  < 0) {
-        std::cout << "The complex number is: " << real << "" << imaginary << "j" << '\n';
+        std::cout << "The complex number is: " << real << "-j" << -1*imaginary << '\n';
     }
     else{
-        std::cout << "The complex number is: " << real << "+" << imaginary << "j" << '\n';
+        std::cout << "The complex number is: " << real << "+j" << imaginary << '\n';
         }
 }
-
-
 
 Complex add(Complex i1, Complex i2){
     Complex sum;
@@ -53,10 +51,17 @@ Complex subtract(Complex i1, Complex i2){
     return diff;
 }
 
+Complex multiply(Complex i1, Complex i2){
+    Complex resultant;
+    resultant.real = (i1.real*i2.real - i1.imaginary*i2.imaginary);
+    resultant.imaginary = (i1.real*i2.imaginary + i1.imaginary*i2.real);
+    return resultant;
+}
+
 int main() {
-    Complex n1;
-    n1.set();
-    Complex n2(-4, -2);
-    Complex diff = subtract(n1, n2);
-    diff.get();
+    Complex n1(6, -6);
+    Complex n2(24, 7);
+    Complex val = multiply(n1, n2);
+    val.get();
+
 }
