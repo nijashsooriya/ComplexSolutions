@@ -9,7 +9,7 @@ using namespace std;
 
 vector<vector<int>> triples(){
     vector<vector<int>> result;
-    for(int i = 2; i < 100; i++){
+    for(int i = 2; i < 10; i++){
         Complex n1(1, i);
         vector<int> temp;
         Complex resultant = multiply(n1, n1);
@@ -24,10 +24,11 @@ vector<vector<int>> triples(){
     return result;
 }
 
-int main(){
+//int main(){
+/*
     vector<vector<int>> return_vect = triples();
     for(int i = 0; i < return_vect.size(); i++){
         std::cout << return_vect[i][0] << ", " << return_vect[i][1] << ", " << return_vect[i][2] << '\n';
     }
 
-}
+}*/
