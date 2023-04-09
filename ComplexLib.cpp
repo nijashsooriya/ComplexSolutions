@@ -9,7 +9,7 @@ public:
         real = 0, imaginary = 0;
     }
     Complex(double r, double i){
-        //Specified constructor
+        //Parameterized constructor
         real =  r, imaginary = i;
     }
 
@@ -21,6 +21,7 @@ public:
     friend Complex divide(Complex, Complex);
     friend double getReal(Complex);
     friend double getImag(Complex);
+    friend double getMag(Complex);
 };
 
 void Complex::set() {
@@ -77,11 +78,8 @@ double getImag(Complex i1){
     return i1.imaginary;
 }
 
-int main() {
-    Complex n1(6.5, -6);
-    Complex n2(24, 7);
-    Complex val = divide(n1, n2);
-    val.get();
-    std::cout << getReal(val) << '\n' << getImag(val);
-
+double getMag(Complex i1){
+    return sqrt(pow(i1.real,2 ) + pow(i1.imaginary, 2));
 }
+
+
