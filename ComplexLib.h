@@ -27,6 +27,26 @@ public:
     friend double getMag(Complex);
 };
 
+class Phasors : public Complex{
+private:
+    double magnitude, angle;
+public:
+    Phasors(){
+        magnitude = 0, angle = 0;
+    };
+    Phasors(double Mag, double Ang){
+        magnitude = Mag, angle =  Ang;
+    };
+
+    void get();
+    friend Complex phasor_comp(Phasors);
+    friend Phasors comp_phasors(Complex);
+    friend Phasors add(Phasors, Phasors);
+    friend Phasors subtract(Phasors, Phasors);
+    friend Phasors multiply(Phasors, Phasors);
+    friend Phasors divide(Phasors, Phasors);
+};
+
 
 #endif //UNTITLED3_COMPLEXLIB_H
 
