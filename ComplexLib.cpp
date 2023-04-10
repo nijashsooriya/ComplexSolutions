@@ -44,8 +44,6 @@ public:
     friend Phasors multiply(Phasors, Phasors);
     friend Phasors divide(Phasors, Phasors);
 
-
-
 };
 
 void Complex::set() {
@@ -141,24 +139,22 @@ Phasors subtract(Phasors p1, Phasors p2){
 }
 
 Phasors multiply(Phasors p1, Phasors p2){
-    Complex c1, c2;
-    c1 = phasor_comp(p1);
-    c2 = phasor_comp(p2);
-    Complex result = multiply(c1, c2);
-    return comp_phasors(result);
+    Phasors result;
+    result.magnitude = p1.magnitude*p2.magnitude;
+    result.angle = p1.angle + p2.angle;
+    return result;
 }
 
 Phasors divide(Phasors p1, Phasors p2){
-    Complex c1, c2;
-    c1 = phasor_comp(p1);
-    c2 = phasor_comp(p2);
-    Complex resultant = divide(c1, c2);
-    return comp_phasors(resultant);
+    Phasors p3;
+    p3.magnitude = p1.magnitude/p2.magnitude;
+    p3.angle = p1.angle - p2.angle;
+    return p3;
 }
 
 int main(){
     Phasors p1(1, -90), p2(1,90);
-    Phasors p3 = multiply(p1, p2);
+    Phasors p3 = divide(p1, p2);
     p3.get();
 }
 
