@@ -17,7 +17,7 @@ public:
         real = r, imaginary = i;
     };
     void set();
-    void get();
+    void get_complex();
     friend Complex add(Complex, Complex);
     friend Complex subtract(Complex, Complex);
     friend Complex multiply(Complex, Complex);
@@ -38,7 +38,7 @@ public:
         magnitude = Mag, angle =  Ang;
     };
 
-    void get();
+    void get_phasor();
     friend Complex phasor_comp(Phasors);
     friend Phasors comp_phasors(Complex);
     friend Phasors add(Phasors, Phasors);

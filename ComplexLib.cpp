@@ -14,7 +14,7 @@ public:
     }
 
     void set();
-    void get();
+    void get_complex();
     friend Complex add(Complex, Complex);
     friend Complex subtract(Complex, Complex);
     friend Complex multiply(Complex, Complex);
@@ -36,7 +36,7 @@ public:
         magnitude = Mag, angle =  Ang;
     }
 
-    void get();
+    void get_phasor();
     friend Complex phasor_comp(Phasors);
     friend Phasors comp_phasors(Complex);
     friend Phasors add(Phasors, Phasors);
@@ -55,7 +55,7 @@ void Complex::set() {
     std::cout << "The imaginary part specified is " <<imaginary <<'\n';
 }
 
-void Complex::get(){
+void Complex::get_complex(){
     if(imaginary  < 0) {
         std::cout << "The complex number is: " << real << "-j" << -1*imaginary << '\n';
     }
@@ -104,7 +104,7 @@ double getMag(Complex i1){
     return sqrt(pow(i1.real,2 ) + pow(i1.imaginary, 2));
 }
 
-void Phasors::get() {
+void Phasors::get_phasor(){
     std::cout << "Phasor is: " << magnitude << " < " << angle << '\n';
 }
 
@@ -155,7 +155,7 @@ Phasors divide(Phasors p1, Phasors p2){
 int main(){
     Phasors p1(1, -90), p2(1,90);
     Phasors p3 = divide(p1, p2);
-    p3.get();
+    p3.get_phasor();
 }
 
 
