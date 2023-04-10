@@ -25,6 +25,7 @@ public:
     friend double getReal(Complex);
     friend double getImag(Complex);
     friend double getMag(Complex);
+    friend Complex getConj(Complex);
 };
 
 class Phasors : public Complex{

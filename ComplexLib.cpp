@@ -22,6 +22,7 @@ public:
     friend double getReal(Complex);
     friend double getImag(Complex);
     friend double getMag(Complex);
+    friend Complex getConj(Complex);
 };
 
 class Phasors : public Complex{
@@ -92,6 +93,13 @@ Complex divide(Complex i1, Complex i2){
     return result;
 }
 
+Complex getConj(Complex c1){
+    Complex conjugate;
+    conjugate.real = c1.real;
+    conjugate.imaginary = - c1.imaginary;
+    return conjugate;
+}
+
 double getReal(Complex i1){
     return i1.real;
 }
@@ -153,9 +161,10 @@ Phasors divide(Phasors p1, Phasors p2){
 }
 
 int main(){
-    Phasors p1(1, -90), p2(1,90);
-    Phasors p3 = divide(p1, p2);
-    p3.get_phasor();
+    Complex c1(1, 4);
+    Complex c1_prime = getConj(c1);
+    c1_prime.get_complex();
+
 }
 
 
