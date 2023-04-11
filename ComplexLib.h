@@ -39,7 +39,7 @@ public:
         magnitude = Mag, angle =  Ang;
     };
 
-    void get_phasor();
+    void get_phasor() const;
     friend Complex phasor_comp(Phasors);
     friend Phasors comp_phasors(Complex);
     friend Phasors add(Phasors, Phasors);
