@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 class Complex{
 public:
@@ -14,7 +14,7 @@ public:
     }
 
     void set();
-    void get_complex();
+    void get_complex() const;
     friend Complex add(Complex, Complex);
     friend Complex subtract(Complex, Complex);
     friend Complex multiply(Complex, Complex);
@@ -23,6 +23,7 @@ public:
     friend double getImag(Complex);
     friend double getMag(Complex);
     friend Complex getConj(Complex);
+
 };
 
 class Phasors : public Complex{
@@ -56,7 +57,7 @@ void Complex::set() {
     std::cout << "The imaginary part specified is " <<imaginary <<'\n';
 }
 
-void Complex::get_complex(){
+void Complex::get_complex() const{
     if(imaginary  < 0) {
         std::cout << "The complex number is: " << real << "-j" << -1*imaginary << '\n';
     }
@@ -163,7 +164,8 @@ Phasors divide(Phasors p1, Phasors p2){
 int main(){
     Complex c1(1, 4);
     Complex c1_prime = getConj(c1);
-    c1_prime.get_complex();
+    Complex result = multiply(c1, c1_prime);
+    result.get_complex();
 
 }
 

@@ -17,7 +17,7 @@ public:
         real = r, imaginary = i;
     };
     void set();
-    void get_complex();
+    void get_complex() const;
     friend Complex add(Complex, Complex);
     friend Complex subtract(Complex, Complex);
     friend Complex multiply(Complex, Complex);
